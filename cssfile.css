@@ -1,0 +1,36 @@
+body{
+    border: 1px solid  #539987;
+    border-radius: 10px;
+
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    font-family: 'Roboto', sans-serif;
+    background-color: #615756;
+    width: 60%;
+}
+
+.header_{
+    
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.icerik_{
+
+    color: white;
+    font-size: 20px;
+}
+
+p{
+    font-size: 17px;
+    display: inline;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+ul li{
+    font-size: 17px;
+}
