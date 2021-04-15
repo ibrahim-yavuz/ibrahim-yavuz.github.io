@@ -1,27 +1,28 @@
 body{
-    border: 1px solid  #539987;
-    border-radius: 10px;
 
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
 
     font-family: 'Roboto', sans-serif;
-    background-color: #615756;
+    background-color: #f3f4ed;
     width: 60%;
 }
 
 .header_{
-    
+    box-shadow: 2px 2px #42464280;
     color: white;
-    font-size: 20px;
+    background-color: #536162;
+    font-size: 18px;
     text-align: center;
 }
 
 .icerik_{
-
+    text-align: center;
+    box-shadow: 2px 2px #42464280;
     color: white;
-    font-size: 20px;
+    background-color: #536162;
+    font-size: 18px;
 }
 
 p{
@@ -31,6 +32,25 @@ p{
     margin-right: 15px;
 }
 
-ul li{
-    font-size: 17px;
+.beceriler{
+    padding-bottom: 20px;
+}
+
+.gorseller{
+    text-align: center;
+    background-color: #424642;
+    border-radius: 5px;
+    padding: 5px 5px 5px 5px;
+    display: inline-block;
+}
+
+.beceri_ikonlar{
+    float: left;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.gorseller p{
+    float: left;
 }
