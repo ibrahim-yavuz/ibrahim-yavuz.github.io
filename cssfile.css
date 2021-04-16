@@ -16,12 +16,12 @@ body{
     font-size: 18px;
     text-align: center;
     padding: 10px;
-    display: flex;
 }
 
 .hesaplar{
     width: auto;
     cursor: pointer;
+    text-align: center;
 }
 
 .bilgiler{
@@ -29,11 +29,23 @@ body{
     margin: 20px;
     background-color: white;
     border-radius: 10px;
-    height: auto;
-    width: 30%;
-    float: left;    
+    height: auto; 
     color: #536162;
+    padding-bottom: 18px;
+    padding-top: 2px;
 }
+
+.bilgiler a{
+    text-decoration: none;
+    font-size: medium;
+    color: steelblue;
+}
+
+.bilgiler a:hover{
+    color: rgb(6, 55, 95);
+}
+
+
 
 .icerik_{
     text-align: center;
@@ -52,20 +64,23 @@ p{
 
 .beceriler{
     padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .gorseller{
-    text-align: center;
+    display: flex;
+    align-items: center;
+    margin: 3px;
     background-color: #424642;
     border-radius: 5px;
-    padding: 5px 5px 5px 5px;
-    display: inline-block;
 }
 
 .beceri_ikonlar{
     float: left;
-    width: 50px;
-    height: 50px;
+    margin-left: 10px;
+    height: 40px;
+    width: 40px;
     object-fit: cover;
 }
 
