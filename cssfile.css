@@ -32,6 +32,10 @@ body{
     text-align: center;
 }
 
+.hesaplar:hover{
+    color: rgb(6, 55, 95);
+}
+
 .bilgiler{
     text-align: center;
     margin: 20px;
@@ -73,6 +77,7 @@ p{
 .beceriler{
     padding-bottom: 20px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -94,4 +99,8 @@ p{
 
 .gorseller p{
     float: left;
+}
+
+hr{
+    width: 30%;
 }
