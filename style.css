@@ -1,9 +1,5 @@
-body{
-    margin: auto;
-    width: 50%;
-}
-
 .ana_kutu{
     height: 50px;
     width: 50px;
+    background-color: rgb(21, 179, 0);
 }
