@@ -13,7 +13,7 @@ $(document).ready(function(){
       td1.style.width = "20px";
       td1.style.height = "20px";
       
-      td1.onclick = tdclickFunc;
+      td1.onclick = tdclickFunc($(this));
     
       tr.appendChild(td1);
         
@@ -23,8 +23,8 @@ $(document).ready(function(){
   }
   document.body.appendChild(table);
 
-  function tdclickFunc(){
-    $(this).style.opacity = "0.5";
+  function tdclickFunc(x){
+    x.style.opacity = "0.5";
     alert("Merhaba");
   }
 
