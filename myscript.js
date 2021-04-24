@@ -13,7 +13,7 @@ $(document).ready(function(){
       td1.style.width = "20px";
       td1.style.height = "20px";
       
-      td1.onclick = tdclickFunc($(this));
+      td1.onclick = function(){ tdclickFunc($(this)); };
     
       tr.appendChild(td1);
         
