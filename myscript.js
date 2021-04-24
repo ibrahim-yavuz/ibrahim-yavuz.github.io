@@ -8,7 +8,10 @@ $(document).ready(function(){
     for(var j = 0; j < 9; j++){  
   
       var td1 = document.createElement('td');
-      td1.style.color = "Yellow";
+    
+      td1.bgColor = getRandomColor();
+      td1.style.width = "20px";
+      td1.style.height = "20px";
       tr.appendChild(td1);
         
     }
