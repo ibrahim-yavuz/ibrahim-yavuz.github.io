@@ -1,11 +1,11 @@
 $(document).ready(function(){
 
   var table = document.createElement('table');
-  for (var i = 0; i < 9; i++){
+  for (var i = 0; i < 16; i++){
       
     var tr = document.createElement('tr'); 
       
-    for(var j = 0; j < 9; j++){  
+    for(var j = 0; j < 16; j++){  
   
       var td1 = document.createElement('td');
     
