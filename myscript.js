@@ -24,7 +24,7 @@ $(document).ready(function(){
   document.body.appendChild(table);
 
   function tdclickFunc(x){
-    x.bgColor = "Red"
+    x.bgColor = "#FFF";
     alert("Merhaba");
   }
 
