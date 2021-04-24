@@ -24,6 +24,7 @@ $(document).ready(function(){
   document.body.appendChild(table);
 
   function tdclickFunc(){
+    $(this).style.opacity = "0.5";
     alert("Merhaba");
   }
 
