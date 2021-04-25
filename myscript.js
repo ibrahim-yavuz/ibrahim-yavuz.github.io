@@ -7,6 +7,9 @@ $(document).ready(function(){
   setInterval(function(){
     time--;
     $(".sure").text(time + "");
+    if(time <= 0){
+      time = 60;
+    }
 
   },1000);
 
