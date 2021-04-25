@@ -4,66 +4,55 @@ $(document).ready(function(){
   var size = 9;
   var time = 60;
 
-  var size_temp = 0;
-
   var score = 0;
   var timer;
-  var kutu;
 
-  $(".secim1").click(function(){
-    size = 9;
+  /*$(".secim1").click(function(){
     $(".secim1").css("background", "#e43f5a");
     $(".secim2").css("background", "#1f4068");
     $(".secim3").css("background", "#1f4068");
-    createTable();
   });
 
   $(".secim2").click(function(){
-    size = 16;
     $(".secim2").css("background", "#e43f5a");
     $(".secim1").css("background", "#1f4068");
     $(".secim3").css("background", "#1f4068");
-    createTable();
   });
 
   $(".secim3").click(function(){
-    size = 25;
     $(".secim3").css("background", "#e43f5a");
     $(".secim2").css("background", "#1f4068");
     $(".secim1").css("background", "#1f4068");
-    createTable();
-  });
+  });*/
   
   $(".yuksek_skor").text("Yüksek Skor: " + localStorage.getItem("high_score"));
   $(".basla").click(function(){
     basla();
   });
 
-  function createTable(){
-    for (var i = 0; i < size; i++){ 
-      var tr = document.createElement('tr');     
-      for(var j = 0; j < size; j++){  
-  
-        var td1 = document.createElement('td'); 
-        td1.bgColor = getRandomColor();
-        var genislik = 500 / size;
-  
-        td1.style.width = genislik + "px";
-        td1.style.height = genislik + "px";
-        
-        td1.onclick = function(){ tdclickFunc($(this).css("background-color")); };
+  for (var i = 0; i < size; i++){ 
+    var tr = document.createElement('tr');     
+    for(var j = 0; j < size; j++){  
+
+      var td1 = document.createElement('td'); 
+      td1.bgColor = getRandomColor();
+      var genislik = 500 / size;
+
+      td1.style.width = genislik + "px";
+      td1.style.height = genislik + "px";
       
-        tr.appendChild(td1);
-      }
-      
-      table.appendChild(tr);
+      td1.onclick = function(){ tdclickFunc($(this).css("background-color")); };
+    
+      tr.appendChild(td1);
     }
-    $(".kutular").append(table);
-
-    kutu = document.querySelectorAll(".ana_kutu")[0];
-
-    kutu.style.backgroundColor  = getRandomTDColor(table);
+    
+    table.appendChild(tr);
   }
+  $(".kutular").append(table);
+
+  var kutu = document.querySelectorAll(".ana_kutu")[0];
+
+  kutu.style.backgroundColor  = getRandomTDColor(table);
 
   function basla(){
 
