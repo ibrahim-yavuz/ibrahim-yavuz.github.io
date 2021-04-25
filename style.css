@@ -1,6 +1,13 @@
+@font-face {
+    font-family: roboto;
+    src: url("C:\\Users\\ibrahim\\MyFirstGame\\Library\\PackageCache\\com.unity.learn.iet-framework@0.3.0-preview.5\\Framework\\Interactive Tutorials\\GUI\\Roboto Font\\Roboto-Medium.ttf");
+}
+
+
 body{
     background-color: #1b1b2f;
     color: white;
+    font-family: roboto;
 }
 
 
@@ -31,10 +38,9 @@ td:hover{
     border-radius: 5px;
     background-color: #e43f5a;
     padding: 15px;
-    width: 60px;
+    width: min-content;
     text-align: center;
-    margin: auto;
-    float: left;
+    margin: 5px;
 }
 
 .skor{
@@ -42,12 +48,88 @@ td:hover{
     border-radius: 5px;
     background-color: #e43f5a;
     padding: 15px;
-    width: 60px;
+    width: min-content;
     text-align: center;
-    margin: auto;
-    float: left;
+    margin: 5px;
 }
 
 .sure_kapsayan{
     display: none;
+    margin: auto;
+    justify-content: center;
+}
+
+
+.oyun_oncesi{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+
+.basla{
+    background-color: #e43f5a;
+    padding: 15px;
+    width: 10%;
+    margin: auto;
+    margin-top: 30px;
+    font-size: 25px;
+    border-radius: 5px;
+}
+
+.basla:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.yuksek_skor{
+    background-color: #1f4068;
+    width: 10%;
+    padding: 8px;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.anlik_skor{
+    background-color: #1f4068;
+    width: 10%;
+    padding: 8px;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.secim{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.secim1{
+    background-color: #1f4068;
+    padding: 10px;
+    width: 5%;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.secim2{
+    background-color: #1f4068;
+    padding: 10px;
+    width: 5%;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.secim3{
+    background-color: #1f4068;
+    padding: 10px;
+    width: 5%;
+    border-radius: 5px;
+    cursor: pointer;
 }

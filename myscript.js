@@ -4,46 +4,91 @@ $(document).ready(function(){
   var size = 9;
   var time = 60;
 
+  var size_temp = 0;
+
   var score = 0;
+  var timer;
+  var kutu;
 
-  setInterval(function(){
-    time--;
-    if(time < 10){
-      $(".sure").text("00:0"+time);
-    }else{
-      $(".sure").text("00:"+time);
-    }
-    if(time <= 0){
-      time = 60;
-    }
+  $(".secim1").click(function(){
+    size = 9;
+    $(".secim1").css("background", "#e43f5a");
+    $(".secim2").css("background", "#1f4068");
+    $(".secim3").css("background", "#1f4068");
+    createTable();
+  });
 
-  },1000);
+  $(".secim2").click(function(){
+    size = 16;
+    $(".secim2").css("background", "#e43f5a");
+    $(".secim1").css("background", "#1f4068");
+    $(".secim3").css("background", "#1f4068");
+    createTable();
+  });
 
-  for (var i = 0; i < size; i++){ 
-    var tr = document.createElement('tr');     
-    for(var j = 0; j < size; j++){  
+  $(".secim3").click(function(){
+    size = 25;
+    $(".secim3").css("background", "#e43f5a");
+    $(".secim2").css("background", "#1f4068");
+    $(".secim1").css("background", "#1f4068");
+    createTable();
+  });
+  
+  $(".yuksek_skor").text("Yüksek Skor: " + localStorage.getItem("high_score"));
+  $(".basla").click(function(){
+    basla();
+  });
 
-      var td1 = document.createElement('td'); 
-      td1.bgColor = getRandomColor();
-      var genislik = 500 / size;
-
-      td1.style.width = genislik + "px";
-      td1.style.height = genislik + "px";
-      
-      td1.onclick = function(){ tdclickFunc($(this).css("background-color")); };
-    
-      tr.appendChild(td1);
+  function createTable(){
+    for (var i = 0; i < size; i++){ 
+      var tr = document.createElement('tr');     
+      for(var j = 0; j < size; j++){  
+  
+        var td1 = document.createElement('td'); 
+        td1.bgColor = getRandomColor();
+        var genislik = 500 / size;
+  
+        td1.style.width = genislik + "px";
+        td1.style.height = genislik + "px";
         
+        td1.onclick = function(){ tdclickFunc($(this).css("background-color")); };
+      
+        tr.appendChild(td1);
+      }
+      
+      table.appendChild(tr);
     }
-    
-    table.appendChild(tr);
+    $(".kutular").append(table);
+
+    kutu = document.querySelectorAll(".ana_kutu")[0];
+
+    kutu.style.backgroundColor  = getRandomTDColor(table);
   }
-  $(".kutular").append(table);
 
-  var kutu = document.querySelectorAll(".ana_kutu")[0];
+  function basla(){
 
-  kutu.style.backgroundColor  = getRandomTDColor(table);
+    $(".sure_kapsayan").css("display", "flex");
+    $(".ana_kutu").css("display", "block");
+    $(".kutular").css("display", "block");
+    $(".oyun_oncesi").css("display", "none");
 
+    score = 0;
+    $(".skor").text("0");
+
+    timer = setInterval(function(){
+      time--;
+      if(time < 10){
+        $(".sure").text("00:0"+time);
+      }else{
+        $(".sure").text("00:"+time);
+      }
+      if(time <= 0){
+        finishGame();
+        time = 60;
+      }
+  
+    },1000);
+  }
 
   function refresh(){
     for (var i = 0; i < size; i++){      
@@ -52,6 +97,22 @@ $(document).ready(function(){
       }
     }
     kutu.style.backgroundColor  = getRandomTDColor(table);
+  }
+
+  function finishGame(){
+    if(localStorage.getItem("high_score") < score){
+      localStorage.setItem("high_score", score);
+    }
+
+    $(".sure_kapsayan").css("display", "none");
+    $(".ana_kutu").css("display", "none");
+    $(".kutular").css("display", "none");
+    $(".oyun_oncesi").css("display", "block");
+
+    $(".yuksek_skor").text("Yüksek Skor: " + localStorage.getItem("high_score"));
+    $(".anlik_skor").text("Skor: " + score);
+
+    clearInterval(timer);
   }
 
 
