@@ -1,12 +1,18 @@
 $(document).ready(function(){
 
   var table = document.createElement('table');
-  var size = 4;
+  var size = 9;
   var time = 60;
+
+  var score = 0;
 
   setInterval(function(){
     time--;
-    $(".sure").text(time + "");
+    if(time < 10){
+      $(".sure").text("00:0"+time);
+    }else{
+      $(".sure").text("00:"+time);
+    }
     if(time <= 0){
       time = 60;
     }
@@ -51,7 +57,9 @@ $(document).ready(function(){
 
   function tdclickFunc(x){
     if(x == kutu.style.backgroundColor){
-      refresh();
+      refresh(); 
+      score++;
+      $(".skor").text("" + score);
     }
   }
 

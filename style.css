@@ -1,3 +1,9 @@
+body{
+    background-color: #1b1b2f;
+    color: white;
+}
+
+
 table{
     margin: auto;
 }
@@ -10,4 +16,32 @@ td:hover{
     height: 100px;
     width: 100px;
     margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.sure{
+    font-size: 30px;
+    border-radius: 5px;
+    background-color: #e43f5a;
+    padding: 15px;
+    width: 60px;
+    text-align: center;
+    margin: auto;
+    float: left;
+}
+
+.skor{
+    font-size: 30px;
+    border-radius: 5px;
+    background-color: #e43f5a;
+    padding: 15px;
+    width: 60px;
+    text-align: center;
+    margin: auto;
+    float: left;
+}
+
+.sure_kapsayan{
+    display: flex;
 }
