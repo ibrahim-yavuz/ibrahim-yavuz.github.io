@@ -1,5 +1,13 @@
+table{
+    margin: auto;
+}
+
+td:hover{
+    transform: scale(1.1);
+}
+
 .ana_kutu{
-    height: 50px;
-    width: 50px;
-    background-color: rgb(21, 179, 0);
+    height: 100px;
+    width: 100px;
+    margin: auto;
 }

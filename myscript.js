@@ -1,21 +1,21 @@
 $(document).ready(function(){
 
   var table = document.createElement('table');
-  for (var i = 0; i < 16; i++){
-      
-    var tr = document.createElement('tr'); 
-      
-    for(var j = 0; j < 16; j++){  
-  
-      var td1 = document.createElement('td');
-    
+
+  var size = 3;
+
+  for (var i = 0; i < size; i++){ 
+    var tr = document.createElement('tr');     
+    for(var j = 0; j < size; j++){  
+
+      var td1 = document.createElement('td'); 
       td1.bgColor = getRandomColor();
-      td1.style.width = "30px";
-      td1.style.height = "30px";
+      var genislik = 500 / size;
+
+      td1.style.width = genislik + "px";
+      td1.style.height = genislik + "px";
       
-      td1.onclick = function(){ tdclickFunc(this); };
-      td1.onmouseover = function(){ tdOnMouseOver(this); };
-      td1.onmouseleave = function(){ tdOnMouseLeave(this); };
+      td1.onclick = function(){ tdclickFunc($(this).css("background-color")); };
     
       tr.appendChild(td1);
         
@@ -23,18 +23,27 @@ $(document).ready(function(){
     
     table.appendChild(tr);
   }
-  document.body.appendChild(table);
+  $(".kutular").append(table);
+
+  var kutu = document.querySelectorAll(".ana_kutu")[0];
+
+  kutu.style.backgroundColor  = getRandomTDColor(table);
+
+
+  function refresh(){
+    for (var i = 0; i < size; i++){      
+      for(var j = 0; j < size; j++){        
+        table.rows[i].cells[j].bgColor = getRandomColor();      
+      }
+    }
+    kutu.style.backgroundColor  = getRandomTDColor(table);
+  }
+
 
   function tdclickFunc(x){
-    alert("Merhaba");
-  }
-
-  function tdOnMouseOver(x){
-    x.style.opacity = "0.5";
-  }
-
-  function tdOnMouseLeave(x){
-    x.style.opacity = "1";
+    if(x == kutu.style.backgroundColor){
+      refresh();
+    }
   }
 
   function getRandomColor() {
@@ -44,6 +53,14 @@ $(document).ready(function(){
       color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
+  }
+
+  function getRandomTDColor(table){
+    var satir = Math.floor(Math.random() * size);
+    var sutun = Math.floor(Math.random() * size);
+
+    return table.rows[satir].cells[sutun].bgColor;
+
   }
     
 });
