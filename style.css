@@ -18,6 +18,12 @@ td:hover{
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
+
+    display: none;
+}
+
+.kutular{
+    display: none;
 }
 
 .sure{
@@ -43,5 +49,5 @@ td:hover{
 }
 
 .sure_kapsayan{
-    display: flex;
+    display: none;
 }
