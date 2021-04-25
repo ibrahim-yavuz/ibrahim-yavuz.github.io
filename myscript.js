@@ -1,8 +1,14 @@
 $(document).ready(function(){
 
   var table = document.createElement('table');
-
   var size = 4;
+  var time = 60;
+
+  setInterval(function(){
+    time--;
+    $(".sure").text(time + "");
+
+  },1000);
 
   for (var i = 0; i < size; i++){ 
     var tr = document.createElement('tr');     
