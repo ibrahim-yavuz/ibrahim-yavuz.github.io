@@ -2,7 +2,7 @@ $(document).ready(function(){
 
   var table = document.createElement('table');
 
-  var size = 3;
+  var size = 4;
 
   for (var i = 0; i < size; i++){ 
     var tr = document.createElement('tr');     
