@@ -34,10 +34,32 @@ $(document).ready(function(){
     basla();
   });
 
+  for (var i = 0; i < size; i++){ 
+    var tr = document.createElement('tr');     
+    for(var j = 0; j < size; j++){  
+
+      var td1 = document.createElement('td'); 
+      td1.bgColor = getRandomColor();
+      var genislik = 500 / size;
+
+      td1.style.width = genislik + "px";
+      td1.style.height = genislik + "px";
+      
+      td1.onclick = function(){ tdclickFunc($(this).css("background-color")); };
+    
+      tr.appendChild(td1);
+    }
+    
+    table.appendChild(tr);
+  }
+  $(".kutular").append(table);
+
+  var kutu = document.querySelectorAll(".ana_kutu")[0];
+
+  kutu.style.backgroundColor  = getRandomTDColor(table);
+
   
-
   function basla(){
-
     $(".sure_kapsayan").css("display", "flex");
     $(".ana_kutu").css("display", "block");
     $(".kutular").css("display", "block");
@@ -59,31 +81,6 @@ $(document).ready(function(){
       }
   
     },1000);
-
-    for (var i = 0; i < size; i++){ 
-      var tr = document.createElement('tr');     
-      for(var j = 0; j < size; j++){  
-  
-        var td1 = document.createElement('td'); 
-        td1.bgColor = getRandomColor();
-        var genislik = 500 / size;
-  
-        td1.style.width = genislik + "px";
-        td1.style.height = genislik + "px";
-        
-        td1.onclick = function(){ tdclickFunc($(this).css("background-color")); };
-      
-        tr.appendChild(td1);
-      }
-      
-      table.appendChild(tr);
-    }
-    $(".kutular").append(table);
-  
-    var kutu = document.querySelectorAll(".ana_kutu")[0];
-  
-    kutu.style.backgroundColor  = getRandomTDColor(table);
-
   }
 
   function refresh(){
@@ -96,6 +93,7 @@ $(document).ready(function(){
   }
 
   function finishGame(){
+
     if(localStorage.getItem("high_score") < score){
       localStorage.setItem("high_score", score);
     }
@@ -109,7 +107,7 @@ $(document).ready(function(){
     $(".anlik_skor").text("Skor: " + score);
 
     clearInterval(timer);
-    table.remove();
+    refresh();
   }
 
 
