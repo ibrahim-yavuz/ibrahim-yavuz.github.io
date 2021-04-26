@@ -109,6 +109,7 @@ $(document).ready(function(){
     $(".anlik_skor").text("Skor: " + score);
 
     clearInterval(timer);
+    table.remove();
   }
 
 
