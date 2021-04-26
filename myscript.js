@@ -31,6 +31,7 @@ $(document).ready(function(){
   });
   
   $(".yuksek_skor").text("Yüksek Skor: " + localStorage.getItem("high_score"));
+  $(".skor").text("Yüksek Skor: " + localStorage.getItem("score"));
   $(".basla").click(function(){
     basla();
     createTable();
