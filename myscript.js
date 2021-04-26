@@ -6,6 +6,7 @@ $(document).ready(function(){
 
   var score = 0;
   var timer;
+  var kutu;
 
   $(".secim1").css("background", "#e43f5a");
   $(".secim1").click(function(){
@@ -32,32 +33,35 @@ $(document).ready(function(){
   $(".yuksek_skor").text("Yüksek Skor: " + localStorage.getItem("high_score"));
   $(".basla").click(function(){
     basla();
+    createTable();
   });
+  
 
-  for (var i = 0; i < size; i++){ 
-    var tr = document.createElement('tr');     
-    for(var j = 0; j < size; j++){  
-
-      var td1 = document.createElement('td'); 
-      td1.bgColor = getRandomColor();
-      var genislik = 500 / size;
-
-      td1.style.width = genislik + "px";
-      td1.style.height = genislik + "px";
+  function createTable(){
+    for (var i = 0; i < size; i++){ 
+      var tr = document.createElement('tr');     
+      for(var j = 0; j < size; j++){  
+  
+        var td1 = document.createElement('td'); 
+        td1.bgColor = getRandomColor();
+        var genislik = 500 / size;
+  
+        td1.style.width = genislik + "px";
+        td1.style.height = genislik + "px";
+        
+        td1.onclick = function(){ tdclickFunc($(this).css("background-color")); };
       
-      td1.onclick = function(){ tdclickFunc($(this).css("background-color")); };
-    
-      tr.appendChild(td1);
+        tr.appendChild(td1);
+      }
+      
+      table.appendChild(tr);
     }
-    
-    table.appendChild(tr);
+    $(".kutular").append(table);
+  
+    kutu = document.querySelectorAll(".ana_kutu")[0];
+  
+    kutu.style.backgroundColor  = getRandomTDColor(table);
   }
-  $(".kutular").append(table);
-
-  var kutu = document.querySelectorAll(".ana_kutu")[0];
-
-  kutu.style.backgroundColor  = getRandomTDColor(table);
-
   
   function basla(){
     $(".sure_kapsayan").css("display", "flex");
@@ -77,7 +81,6 @@ $(document).ready(function(){
       }
       if(time <= 0){
         finishGame();
-        time = 60;
       }
   
     },1000);
@@ -86,13 +89,15 @@ $(document).ready(function(){
   function refresh(){
     for (var i = 0; i < size; i++){      
       for(var j = 0; j < size; j++){        
-        table.rows[i].cells[j].bgColor = getRandomColor();      
+        table.rows[i].cells[j].bgColor = getRandomColor();
       }
     }
     kutu.style.backgroundColor  = getRandomTDColor(table);
   }
 
-  function finishGame(){
+  function finishGame(){    
+    time = 60;
+    localStorage.setItem("score",score);
 
     if(localStorage.getItem("high_score") < score){
       localStorage.setItem("high_score", score);
@@ -104,10 +109,11 @@ $(document).ready(function(){
     $(".oyun_oncesi").css("display", "block");
 
     $(".yuksek_skor").text("Yüksek Skor: " + localStorage.getItem("high_score"));
-    $(".anlik_skor").text("Skor: " + score);
+    $(".anlik_skor").text("Skor: " + localStorage.getItem("score"));
 
     clearInterval(timer);
     refresh();
+    location.reload();
   }
 
 
